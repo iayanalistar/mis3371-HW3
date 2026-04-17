@@ -344,6 +344,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const confirmPasswordField = document.getElementById("confirmPassword");
     const reviewContent = document.getElementById("reviewContent");
 
+     if (validateBtn) {
+        validateBtn.addEventListener("click", function () {
+            validateForm();
+        });
+     }
+
     if (userIdField) {
         userIdField.addEventListener("input", function () {
             this.value = this.value.toLowerCase();
@@ -409,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let vaccinated = document.querySelector('input[name="vaccinated"]:checked')?.value || "Not selected";
 
             let conditions = [];
-            document.querySelectorAll('input[name="conditions"]:checked').forEach(function (box) {
+            document.querySelectorAll('input[name="history"]:checked').forEach(function (box) {
                 conditions.push(box.value);
             });
 
@@ -417,11 +423,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 zip = zip.substring(0, 5);
             }
             
-    if (validateBtn) {
-            validateBtn.addEventListener("click", function () {
-                validateForm();
-            });
-    }
+   
             
 
             let output = `
