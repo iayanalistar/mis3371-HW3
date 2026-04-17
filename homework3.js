@@ -6,6 +6,7 @@ function validateFirstName() {
         return false;
     }
     else if (!/^[A-Za-z'-]{1,30}$/.test(x)) {
+        
             document.getElementById("fnameError").innerHTML = "Letters, apostrophes, and dashes only";
         return false;
     }
@@ -24,6 +25,7 @@ function validateMI() {
     }
     else if (!/^[A-Za-z]$/.test(x)) {
         document.getElementById("miError").innerHTML = "Middle initial must be one letter";
+        
         return false;
         }
     else {
@@ -40,6 +42,7 @@ function validateLastName() {
         return false;
     }
     else if (!/^[A-Za-z'-]{1,30}$/.test(x)) {
+        
         document.getElementById("lnameError").innerHTML = "Letters, apostrophes, and dashes only";
             return false;
     }
@@ -58,7 +61,9 @@ function validateDOB() {
     }
 
     var dob =  new Date(x);
+    
     var today = new Date();
+    
     var oldDate = new Date();
     oldDate.setFullYear(today.getFullYear() - 120);
 
@@ -66,6 +71,7 @@ function validateDOB() {
          document.getElementById("dobError").innerHTML = "DOB cannot be in the future";
         return false;
     }
+        
     else  if (dob < oldDate) {
         document.getElementById("dobError").innerHTML = "DOB cannot be more than 120 years ago";
         return false;
@@ -73,6 +79,7 @@ function validateDOB() {
     else {
         document.getElementById("dobError").innerHTML = "";
         return true;
+        
         }
 }
 function validateSSN() {
@@ -88,12 +95,15 @@ function validateSSN() {
     }
     else {
         document.getElementById("ssnError").innerHTML = "";
+        
             return true;
     }
 }
 
 function validateZip() {
     var x = document.getElementById("zip").value;
+
+    
 
     if (x == "") {
         document.getElementById("zipError").innerHTML = "ZIP code is required";
@@ -107,6 +117,8 @@ function validateZip() {
         document.getElementById("zipError").innerHTML = "";
             return true;
     }
+
+    
     }
 
     function validatePhone() {
@@ -144,6 +156,128 @@ function validateEmail() {
         return true;
     }
 }
+function validateAddress1() {
+        var x = document.getElementById("address1").value;
+
+    if (x == "") {
+            document.getElementById("address1Error").innerHTML = "Street address is required";
+            return false;
+    }
+    else if (x.length < 2 || x.length > 30) {
+        document.getElementById("address1Error").innerHTML = "Street address must be 2 to 30 characters";
+            return false;
+    }
+    else {
+        document.getElementById("address1Error").innerHTML = "";
+            return true;
+    }
+}
+
+
+
+
+function validateCity() {
+    var x = document.getElementById("city").value;
+
+    if (x == "") {
+           document.getElementById("cityError").innerHTML = "City is required";
+        return false;
+}
+     else if (x.length < 2 || x.length > 30) {
+        document.getElementById("cityError").innerHTML = "City must be 2 to 30 characters";
+        return false;
+    }
+    else {
+        document.getElementById("cityError").innerHTML = "";
+        return true;
+    }
+ }
+
+function validateState() {
+    var x = document.getElementById("state").value;
+
+    if (x == "") {
+        document.getElementById("stateError").innerHTML = "Please select a state";
+        return false;
+    }
+    else {
+        document.getElementById("stateError").innerHTML = "";
+        return true;
+    }
+}
+
+function validateUserId() {
+            var field = document.getElementById("userid");
+            field.value = field.value.toLowerCase();
+            var x = field.value;
+
+            if (x == "") {
+                document.getElementById("useridError").innerHTML = "User ID is required";
+                return false;
+        }
+    else if (!/^[a-z][a-z0-9_-]{4,19}$/.test(x)) {
+        document.getElementById("useridError").innerHTML = "5-20 characters, start with a letter, no spaces";
+        return false;
+    }
+      else {
+        document.getElementById("useridError").innerHTML = "";
+        return true;
+    }
+}
+
+function validatePassword() {
+        var x = document.getElementById("password").value;
+        var userid = document.getElementById("userid").value.toLowerCase();
+
+    if (x == "") {
+        document.getElementById("passwordError").innerHTML = "Password is required";
+        return false;
+    }
+    else if (x.length < 8) {
+            document.getElementById("passwordError").innerHTML = "Password must be at least 8 characters";
+            return false;
+    }
+    else if (!/[A-Z]/.test(x)) {
+            document.getElementById("passwordError").innerHTML = "Password needs an uppercase letter";
+            return false;
+    }
+    else if (!/[a-z]/.test(x)) {
+        document.getElementById("passwordError").innerHTML = "Password needs a lowercase letter";
+        return false;
+    }
+    else if (!/[0-9]/.test(x))  {
+        document.getElementById("passwordError").innerHTML = "Password needs a number";
+        return false;
+    }
+    else if (x.toLowerCase() == userid && userid != "") {
+        document.getElementById("passwordError").innerHTML = "Password cannot equal the user ID";
+        return false;
+    }
+    else  {
+        document.getElementById("passwordError").innerHTML = "";
+        
+        return true;
+    }
+    }
+
+    function validateConfirmPassword() {
+        
+    var x = document.getElementById("confirmPassword").value;
+    var y = document.getElementById("password").value;
+
+    if (x == "") {
+        document.getElementById("confirmPasswordError").innerHTML = "Please re-enter your password";
+        return false;
+    }
+    else if (x != y) {
+        document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match";
+        return false;
+ }
+    else {
+        document.getElementById("confirmPasswordError").innerHTML = "";
+        return true;
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -155,6 +289,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("zip").addEventListener("input", validateZip);
     document.getElementById("phone").addEventListener("input", validatePhone);
     document.getElementById("email").addEventListener("input", validateEmail);
+    document.getElementById("address1").addEventListener("input", validateAddress1);
+    document.getElementById("city").addEventListener("input", validateCity);
+    document.getElementById("state").addEventListener("change", validateState);
+    document.getElementById("userid").addEventListener("input", validateUserId);
+    document.getElementById("password").addEventListener("input", validatePassword);
+    document.getElementById("confirmPassword").addEventListener("input", validateConfirmPassword);
     
     const reviewBtn = document.getElementById("reviewBtn");
     const userIdField = document.getElementById("userid");
