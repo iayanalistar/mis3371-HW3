@@ -284,39 +284,79 @@ function validatePassword() {
 
 function validateForm() {
     
+function validateForm() {
     var ok = true;
-    
+    var badFields = "";
 
-    if (!validateFirstName()) ok = false;
-    if (!validateMI()) ok = false;
-    if (!validateLastName()) ok = false;
-    if (!validateDOB()) ok = false;
-    if (!validateSSN()) ok = false;
-    if (!validateAddress1()) ok = false;
-    if (!validateCity()) ok = false;
-    if (!validateState()) ok = false;
-    if (!validateZip()) ok = false;
-    if (!validatePhone()) ok = false;
-    if (!validateEmail()) ok = false;
-    if (!validateUserId()) ok = false;
-    if (!validatePassword()) ok = false;
-    if (!validateConfirmPassword()) ok = false;
+    if (!validateFirstName()) {
+        ok = false;
+        badFields += " First Name;";
+    }
+    if (!validateMI()) {
+        ok = false;
+        badFields += " Middle Initial;";
+    }
+    if (!validateLastName()) {
+        ok = false;
+        badFields += " Last Name;";
+    }
+    if (!validateDOB()) {
+        ok = false;
+        badFields += " Date of Birth;";
+    }
+    if (!validateSSN()) {
+        ok = false;
+        badFields += " Social Security;";
+    }
+    if (!validateAddress1()) {
+        ok = false;
+        badFields += " Street Address;";
+    }
+    if (!validateCity()) {
+        ok = false;
+        badFields += " City;";
+    }
+    if (!validateState()) {
+        ok = false;
+        badFields += " State;";
+    }
+    if (!validateZip()) {
+        ok = false;
+        badFields += " ZIP;";
+    }
+    if (!validatePhone()) {
+        ok = false;
+        badFields += " Phone;";
+    }
+    if (!validateEmail()) {
+        ok = false;
+        badFields += " Email;";
+    }
+    if (!validateUserId()) {
+        ok = false;
+        badFields += " User ID;";
+    }
+    if (!validatePassword()) {
+        ok = false;
+        badFields += " Password;";
+    }
+    if (!validateConfirmPassword()) {
+        ok = false;
+        badFields += " Confirm Password;";
+    }
 
-    
-        if (ok == true) {
-            
+    if (ok == true) {
         document.getElementById("formMessage").innerHTML = "All fields look good. You may submit the form.";
         document.getElementById("formMessage").style.color = "green";
         document.getElementById("submitBtn").style.display = "inline-block";
-        }
-        else {
-            
-            document.getElementById("formMessage").innerHTML = "Please fix the errors above before submitting.";
-            document.getElementById("formMessage").style.color = "red";
-            document.getElementById("submitBtn").style.display = "none";
-        }
+    }
+    else {
+        document.getElementById("formMessage").innerHTML = "Please fix these fields:" + badFields;
+        document.getElementById("formMessage").style.color = "red";
+        document.getElementById("submitBtn").style.display = "none";
+    }
 
-        return ok;
+    return ok;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
