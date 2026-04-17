@@ -74,5 +74,18 @@ a {
 a:visited {
     color: purple;
 }
+.error {
+    display: inline-block;
+    min-height: 18px;
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+}
 
+#formMessage {
+    display: inline-block;
+    min-height: 20px;
+    font-weight: bold;
+    color: red;
+}
 
