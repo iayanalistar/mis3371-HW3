@@ -88,4 +88,60 @@ a:visited {
     font-weight: bold;
     color: red;
 }
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-table td {
+    vertical-align: top;
+    padding: 8px 10px;
+}
+
+.form-table td:first-child {
+    width: 220px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.form-table input[type="text"],
+.form-table input[type="password"],
+.form-table input[type="email"],
+.form-table input[type="tel"],
+.form-table input[type="date"],
+.form-table select,
+.form-table textarea {
+    width: 250px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.form-table textarea {
+    resize: vertical;
+}
+
+.error {
+    display: block;
+    min-height: 18px;
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.name-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.name-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-field label {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
 
