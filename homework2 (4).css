@@ -1,0 +1,78 @@
+/*
+Program name: homeowrk2.css
+Author: Iayan Ali
+Date created: 2/24/26
+Date last edited: 3/25/26
+Version: 1.2
+Description: stylesheet for ZinoCare Group patient registration form system.
+*/
+
+body {
+    background-color: #e6f2ff;   /* Light blue background */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #003366;
+    font-family: Georgia, serif;
+}
+
+h2 {
+    color: #004080;
+}
+
+table {
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 10px;
+}
+
+
+#header {
+    background-color: #cce0ff;
+    padding: 15px;
+}
+
+#footer {
+    background-color: #cce0ff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+button {
+    background-color: #004080;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00264d;
+}
+
+
+a {
+    color: #003366;
+}
+
+#reviewSection {
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#reviewSection h2,
+#reviewSection h3 {
+    color: #003366;
+}
+
+a:visited {
+    color: purple;
+}
+
+

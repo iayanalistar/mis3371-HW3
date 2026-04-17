@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<!--
+Program name: homework2.html
+Author: Iayan Ali
+Date created: 2/24/26
+Date last edited: 3/26/26
+Version: 1.6
+Description: Website for patients of ZinoCare Group to register allowing to obtain simple patient information
+-->
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>ZinoCare Group - Patient Registration</title>
+        <link rel="stylesheet" href="homework2.css">
+        <script src="homework2.js" defer></script>
+    </head>
+    <body>
+        <!--Header-->
+    <div id="header">
+        <table width="100%">
+            <tr>
+                <td>
+                    <img src="logo.png" alt="ZinoCare Logo" width="200">
+                </td>
+    
+                <td>
+                    <h1>ZinoCare Group</h1>
+                </td>
+    
+                <td align="right">
+                    Today is:
+                    <span id="today"></span>
+                </td>
+            </tr>
+        </table>
+      <!--Today's Date-->
+       <script>
+        var today = new Date();
+        document.getElementById("today").innerHTML = today.toDateString();
+      </script>
+      
+        </div>
+    
+            <form id="registrationForm" action="thankyou.html" method="get">
+    
+        <h2>Patient Registration Form</h2>
+    <!--Patient Name-->
+        <table class="form-table" width="100%" cellpadding="5">
+            <tr>
+        <td>First Name:</td>
+        <td>
+            <input type="text" name="firstname" id="fname" maxlength="30" required
+            pattern="[A-Za-z'-]{1,30}"
+            title="Enter your first name using letters, apostrophes, or dashes only.">
+            
+            Middle Initial:
+            <input type="text" name="mi" id="mi"
+            pattern="[A-Za-z]?"
+            title="Enter your middle initial (one letter only, optional).">
+          
+            Last Name:
+            <input type="text" name="lname" id="lname" required
+            pattern="[A-Za-z0-9'-]{1,30}"
+            title="Enter your last name (1–30 characters, letters, numbers 2–5, apostrophes, or dashes allowed).">
+            
+        </td>     
+     </tr>
+      <!--DOB-->      
+    <tr>
+        <td>Date of Birth:</td>
+            <td>
+            <input type="date" name="dob" id="dob" required
+            min="1906-01-01" max="2026-03-26"
+            title="Enter your date of birth. It cannot be in the future or more than 120 years ago.">
+        </td>
+    </tr>
+<!--SSN-->
+    <tr>
+        <td>Social Security:</td>
+        <td>
+            <input type="password" name="ssn" id="ssn" required
+            title="Enter your ID number. This field is hidden for security.">
+        </td>
+</tr>
+<!--Address-->
+<tr>
+        <td>Street Address:</td>
+        <td>
+            <input type="text" name="street" id="address1" required
+            title="Enter your street address (2–30 characters).">
+        </td>
+    </tr>
+    <!--City-->
+    <tr>
+        <td>City:</td>
+        <td>
+            <input type="text" name="city" id="city" required
+            title="Enter your city (2–30 characters).">
+        </td>
+    </tr>
+    <!--State-->
+    <tr>
+    <td>State:</td>
+    <td>
+        <select name="state" id="state" required
+        title="Select your state from the list.">
+            <option value="">Select State</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+            <option value="PR">Puerto Rico</option>
+        </select>
+        </td>
+    </tr>
+        <!--Zip Code-->
+        <tr>
+            <td>ZIP Code:</td>
+            <td>
+                <input type="text" name="zip" id="zip" required
+                pattern="[0-9]{5}(-[0-9]{4})?"
+                title="Enter your ZIP code (5 digits or ZIP+4 format like 77002-1234).">
+            </td>
+        </tr>
+       <!--Phone Number--> 
+        <tr>
+            <td>Phone Number:</td>
+                <td>
+                    <input type="tel" name="phone" id="phone" required
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    title="Enter your phone number in the format 123-456-7890.">
+                </td>
+        </tr>
+    <!--Email Adress-->
+    <tr>
+        <td>Email Address:</td>
+        <td>
+            <input type="email" name="email" id="email" required
+            title="Enter a valid email address in the format name@domain.com.">
+        </td>
+    </tr>  
+    <!--Gender-->            
+    <tr>
+        <td>Gender:</td>
+        <td>
+            <input type="radio" name="gender" value="male" required> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+        </td>
+    </tr>
+      <!--Radio Questions-->      
+    <tr>
+        <td>Have you been vaccinated?</td>
+            <td>
+                <input type="radio" name="vaccinated" value="yes" required> Yes
+                <input type="radio" name="vaccinated" value="no"> No
+            </td>
+    </tr>
+            
+     <tr>
+    <td>Desired Salary:</td>
+    <td>
+        <input type="range" id="salary" name="salary" min="20000" max="200000" step="1000"
+               oninput="document.getElementById('salaryOutput').innerText = '$' + this.value"
+               title="Select your desired salary from $20,000 to $200,000.">
+
+        <span id="salaryOutput">$20000</span>
+    </td>
+    </tr>
+            
+    <tr>
+        <td>Do you have insurance?</td>
+            <td>
+                <input type="radio" name="insurance" value="yes" required> Yes
+                <input type="radio" name="insurance" value="no"> No
+        </td>
+    </tr>
+
+    <tr>
+        <td>Medical History:</td>
+            <td>
+                <input type="checkbox" name="history" value="diabetes"> Diabetes
+                <input type="checkbox" name="history" value="hypertension"> Hypertension
+                <input type="checkbox" name="history" value="asthma"> Asthma
+                <input type="checkbox" name="history" value="heart"> Heart Disease
+                <input type="checkbox" name="history" value="covid"> COVID-19
+            </td>
+    </tr>
+<!--Open Ended Description-->
+    <tr>
+        <td>Describe Current Symptoms:</td>
+            <td>
+                <textarea name="symptoms" rows="3" cols="50"></textarea>
+            </td>
+    </tr>
+    <!--Health Rating Scale-->        
+    <tr>
+        <td>Health Rating (1-10):</td>
+            <td>
+                1
+                <input type="range" name="healthrating" min="1" max="10">
+                10
+        </td>
+    </tr>
+<!--User ID-->
+     <tr>
+        <td>Desired User ID:</td>
+            <td>
+                <input type="text" name="userid" id="userid" required
+                pattern="[A-Za-z][A-Za-z0-9_-]{4,29}"
+                title="Enter a user ID (5–30 characters, must start with a letter, no spaces, only letters, numbers, underscores, or dashes).">
+            </td>
+    </tr>
+    <!--User Password-->
+    <tr>
+        <td>Password:</td>
+            <td>
+                <input type="password" name="password" id="password" required
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%^&*()\-_=+\\/<>.,`~])[A-Za-z0-9!@#%^&*()\-_=+\\/<>.,`~]{8,30}"
+                title="Password must be 8–30 characters and include uppercase, lowercase, a number, and a special character.">
+            </td>
+    </tr>
+    
+    <tr>
+        <td>Re-enter Password:</td>
+            <td>
+                <input type="password" name="confirmPassword" id="confirmPassword" required
+                title="Re-enter your password. It must match the password above.">
+            </td>
+    </tr> 
+            
+    <tr>
+        <td>Comments / Symptoms:</td>
+            <td>
+                <textarea id="comments" name="comments" rows="4" cols="40"
+                title="Enter any additional comments or symptoms (optional)."></textarea>
+        </td>
+    </tr>  
+            
+    <tr>
+        <td colspan="2" align="center">
+            <input type="reset" value="CLEAR AND START OVER">
+            <input type="button" value="Review" id="reviewBtn">
+            <input type="submit" value="Submit">
+        </td>
+    </tr>
+            
+            
+  </tr>
+            
+  </table>
+</form>
+    <div id="reviewSection">
+        <h2>Please Review This Information</h2>
+        <div id="reviewContent"></div>
+    </div>
+<!--Footer-->
+    <div id="footer">
+        <hr>
+            <p>
+                ZinoCare Group <br>
+                PO Box 12345 <br>
+                Sugar Land, TX 77478
+            </p>
+    
+        <button onclick="alert('Contact us at support@zinocare.com')">
+            CONTACT US
+    </button>
+
+</div>
+        
+</body>
+</html>
