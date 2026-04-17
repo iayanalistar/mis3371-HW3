@@ -75,6 +75,75 @@ function validateDOB() {
         return true;
         }
 }
+function validateSSN() {
+        var x = document.getElementById("ssn").value;
+
+    if (x == "") {
+            document.getElementById("ssnError").innerHTML = "Social Security is required";
+        return false;
+        }
+    else if (!/^[0-9]{9}$/.test(x)) {
+        document.getElementById("ssnError").innerHTML = "Enter exactly 9 digits";
+        return     false;
+    }
+    else {
+        document.getElementById("ssnError").innerHTML = "";
+            return true;
+    }
+}
+
+function validateZip() {
+    var x = document.getElementById("zip").value;
+
+    if (x == "") {
+        document.getElementById("zipError").innerHTML = "ZIP code is required";
+            return false;
+    }
+    else if   (!/^[0-9]{5}$/.test(x)) {
+        document.getElementById("zipError").innerHTML = "ZIP code must be 5 digits";
+            return false;
+    }
+    else {
+        document.getElementById("zipError").innerHTML = "";
+            return true;
+    }
+    }
+
+    function validatePhone() {
+    var x = document.getElementById("phone").value;
+
+    if (x == "") {
+        document.getElementById("phoneError").innerHTML = "Phone number is required";
+        return false;
+        }
+    else if (!/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/.test(x)) {
+           document.getElementById("phoneError").innerHTML = "Use format 123-456-7890";
+        return false;
+    }
+    else     {
+        document.getElementById("phoneError").innerHTML = "";
+        return true;
+    }
+}
+
+function validateEmail() {
+    var field = document.getElementById("email");
+        field.value = field.value.toLowerCase();
+    var x = field.value;
+
+    if (x == "") {
+        document.getElementById("emailError").innerHTML = "Email is required";
+        return false;
+    }
+    else if (!/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(x)) {
+        document.getElementById("emailError").innerHTML = "Enter a valid email address";
+        return false;
+    }
+    else     {
+        document.getElementById("emailError").innerHTML = "";
+        return true;
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -82,6 +151,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("mi").addEventListener("input", validateMI);
     document.getElementById("lname").addEventListener("input", validateLastName);
     document.getElementById("dob").addEventListener("change", validateDOB);
+    document.getElementById("ssn").addEventListener("input", validateSSN);
+    document.getElementById("zip").addEventListener("input", validateZip);
+    document.getElementById("phone").addEventListener("input", validatePhone);
+    document.getElementById("email").addEventListener("input", validateEmail);
     
     const reviewBtn = document.getElementById("reviewBtn");
     const userIdField = document.getElementById("userid");
