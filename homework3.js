@@ -279,6 +279,47 @@ function validatePassword() {
     }
 }
 
+
+
+
+function validateForm() {
+    
+    var ok = true;
+    
+
+    if (!validateFirstName()) ok = false;
+    if (!validateMI()) ok = false;
+    if (!validateLastName()) ok = false;
+    if (!validateDOB()) ok = false;
+    if (!validateSSN()) ok = false;
+    if (!validateAddress1()) ok = false;
+    if (!validateAddress2()) ok = false;
+    if (!validateCity()) ok = false;
+    if (!validateState()) ok = false;
+    if (!validateZip()) ok = false;
+    if (!validatePhone()) ok = false;
+    if (!validateEmail()) ok = false;
+    if (!validateUserId()) ok = false;
+    if (!validatePassword()) ok = false;
+    if (!validateConfirmPassword()) ok = false;
+
+    
+        if (ok == true) {
+            
+        document.getElementById("formMessage").innerHTML = "All fields look good. You may submit the form.";
+        document.getElementById("formMessage").style.color = "green";
+        document.getElementById("submitBtn").style.display = "inline-block";
+        }
+        else {
+            
+            document.getElementById("formMessage").innerHTML = "Please fix the errors above before submitting.";
+            document.getElementById("formMessage").style.color = "red";
+            document.getElementById("submitBtn").style.display = "none";
+        }
+
+        return ok;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
      document.getElementById("fname").addEventListener("input", validateFirstName);
@@ -297,6 +338,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("confirmPassword").addEventListener("input", validateConfirmPassword);
     
     const reviewBtn = document.getElementById("reviewBtn");
+    const validateBtn = document.getElementById("validateBtn");
+    const submitBtn = document.getElementById("submitBtn");
     const userIdField = document.getElementById("userid");
     const passwordField = document.getElementById("password");
     const confirmPasswordField = document.getElementById("confirmPassword");
@@ -355,6 +398,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (zip.length > 5) {
                 zip = zip.substring(0, 5);
             }
+            
+    if (validateBtn) {
+            validateBtn.addEventListener("click", function () {
+                validateForm();
+            });
+    }
+            
 
             let output = `
                 <h3>PLEASE REVIEW THIS INFORMATION</h3>
