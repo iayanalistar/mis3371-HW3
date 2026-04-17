@@ -348,7 +348,27 @@ document.addEventListener("DOMContentLoaded", function () {
         userIdField.addEventListener("input", function () {
             this.value = this.value.toLowerCase();
         });
+        
     }
+
+        document.getElementById("resetBtn").addEventListener("click", function () {
+            document.getElementById("submitBtn").style.display = "none";
+            document.getElementById("formMessage").innerHTML = "";
+            document.getElementById("fnameError").innerHTML = "";
+            document.getElementById("miError").innerHTML = "";
+            document.getElementById("lnameError").innerHTML = "";
+            document.getElementById("dobError").innerHTML = "";
+            document.getElementById("ssnError").innerHTML = "";
+            document.getElementById("address1Error").innerHTML = "";
+            document.getElementById("cityError").innerHTML = "";
+            document.getElementById("stateError").innerHTML = "";
+            document.getElementById("zipError").innerHTML = "";
+            document.getElementById("phoneError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("useridError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("confirmPasswordError").innerHTML = "";
+});
 
     function checkPasswordsMatch() {
         if (!passwordField || !confirmPasswordField) return;
