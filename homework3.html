@@ -50,30 +50,35 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
     <!--Patient Name-->
         <table class="form-table" width="100%" cellpadding="5">
             <tr>
-        <td>First Name:</td>
-        <td>
-            <input type="text" name="firstname" id="fname" maxlength="30" required
-            pattern="[A-Za-z'-]{1,30}"
-            title="Enter your first name using letters, apostrophes, or dashes only.">
-            <br>
-            <span class="error" id="fnameError"></span>
+                <td>Name:</td>
+                <td>
+                <div class="name-group">
+                        <div class="name-field">
+                             <label for="fname">First Name:</label>
+                            <input type="text" name="firstname" id="fname" maxlength="30" required
+                            pattern="[A-Za-z'-]{1,30}"
+                                title="Enter your first name using letters, apostrophes, or dashes only.">
+                            <span class="error" id="fnameError"></span>
+                     </div>
             
-            Middle Initial:
-            <input type="text" name="mi" id="mi"
-            pattern="[A-Za-z]?"
-            title="Enter your middle initial (one letter only, optional).">
-            <br>
-            <span class="error" id="miError"></span>
+                         <div class="name-field">
+                            <label for="mi">Middle Initial:</label>
+                            <input type="text" name="mi" id="mi"
+                            pattern="[A-Za-z]?"
+                            title="Enter your middle initial (one letter only, optional).">
+                            <span class="error" id="miError"></span>
+                            </div>
             
-            Last Name:
-            <input type="text" name="lname" id="lname" required
-            pattern="[A-Za-z'-]{1,30}"
-            title="Enter your last name using letters, apostrophes, or dashes only.">
-            <br>
-            <span class="error" id="lnameError"></span>
-            
-        </td>     
-     </tr>
+                            <div class="name-field">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" name="lname" id="lname" required
+                            pattern="[A-Za-z'-]{1,30}"
+                            title="Enter your last name using letters, apostrophes, or dashes only.">
+                            <span class="error" id="lnameError"></span>
+                        </div>
+                        </div>
+                 </td>
+            </tr>
       <!--DOB-->      
     <tr>
         <td>Date of Birth:</td>
@@ -331,7 +336,6 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
         </td>
     </tr>       
             
-  </tr>
             
   </table>
 </form>
