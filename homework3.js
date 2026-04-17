@@ -293,7 +293,6 @@ function validateForm() {
     if (!validateDOB()) ok = false;
     if (!validateSSN()) ok = false;
     if (!validateAddress1()) ok = false;
-    if (!validateAddress2()) ok = false;
     if (!validateCity()) ok = false;
     if (!validateState()) ok = false;
     if (!validateZip()) ok = false;
