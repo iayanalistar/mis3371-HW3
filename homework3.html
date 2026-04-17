@@ -55,16 +55,22 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
             <input type="text" name="firstname" id="fname" maxlength="30" required
             pattern="[A-Za-z'-]{1,30}"
             title="Enter your first name using letters, apostrophes, or dashes only.">
+            <br>
+            <span class="error" id="fnameError"></span>
             
             Middle Initial:
             <input type="text" name="mi" id="mi"
             pattern="[A-Za-z]?"
             title="Enter your middle initial (one letter only, optional).">
-          
+            <br>
+            <span class="error" id="miError"></span>
+            
             Last Name:
             <input type="text" name="lname" id="lname" required
-            pattern="[A-Za-z0-9'-]{1,30}"
-            title="Enter your last name (1–30 characters, letters, numbers 2–5, apostrophes, or dashes allowed).">
+            pattern="[A-Za-z'-]{1,30}"
+            title="Enter your last name using letters, apostrophes, or dashes only.">
+            <br>
+            <span class="error" id="lnameError"></span>
             
         </td>     
      </tr>
@@ -75,6 +81,8 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
             <input type="date" name="dob" id="dob" required
             min="1906-01-01" max="2026-03-26"
             title="Enter your date of birth. It cannot be in the future or more than 120 years ago.">
+            <br>
+            <span class="error" id="dobError"></span>
         </td>
     </tr>
 <!--SSN-->
@@ -82,23 +90,29 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
         <td>Social Security:</td>
         <td>
             <input type="password" name="ssn" id="ssn" required
-            title="Enter your ID number. This field is hidden for security.">
+            title="Enter your 9-digit ID number. Numbers only. This field is hidden for security.">
+    <br>
+<span class="error" id="ssnError"></span>
         </td>
 </tr>
 <!--Address-->
 <tr>
-        <td>Street Address:</td>
-        <td>
+     <td>Street Address:</td>
+         <td>
             <input type="text" name="street" id="address1" required
             title="Enter your street address (2–30 characters).">
+            <br>
+            <span class="error" id="address1Error"></span>
         </td>
     </tr>
     <!--City-->
     <tr>
         <td>City:</td>
-        <td>
-            <input type="text" name="city" id="city" required
-            title="Enter your city (2–30 characters).">
+            <td>
+                <input type="text" name="city" id="city" required
+                title="Enter your city (2–30 characters).">
+    <br>
+<span class="error" id="cityError"></span>
         </td>
     </tr>
     <!--State-->
@@ -161,24 +175,31 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
             <option value="WY">Wyoming</option>
             <option value="PR">Puerto Rico</option>
         </select>
+        <br>
+        <span class="error" id="stateError"></span>
+        
         </td>
     </tr>
         <!--Zip Code-->
         <tr>
             <td>ZIP Code:</td>
-            <td>
-                <input type="text" name="zip" id="zip" required
-                pattern="[0-9]{5}(-[0-9]{4})?"
-                title="Enter your ZIP code (5 digits or ZIP+4 format like 77002-1234).">
-            </td>
+                <td>
+                   <input type="text" name="zip" id="zip" required
+                    pattern="[0-9]{5}(-[0-9]{4})?"
+                    title="Enter your ZIP code (5 digits or ZIP+4 format like 77002-1234).">
+                    <br>
+                    <span class="error" id="zipError"></span>
+                </td>
         </tr>
        <!--Phone Number--> 
         <tr>
             <td>Phone Number:</td>
                 <td>
-                    <input type="tel" name="phone" id="phone" required
+                   <input type="tel" name="phone" id="phone" required
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     title="Enter your phone number in the format 123-456-7890.">
+                    <br>
+                    <span class="error" id="phoneError"></span>
                 </td>
         </tr>
     <!--Email Adress-->
@@ -187,6 +208,8 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
         <td>
             <input type="email" name="email" id="email" required
             title="Enter a valid email address in the format name@domain.com.">
+            <br>
+            <span class="error" id="emailError"></span>
         </td>
     </tr>  
     <!--Gender-->            
@@ -257,17 +280,21 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
         <td>Desired User ID:</td>
             <td>
                 <input type="text" name="userid" id="userid" required
-                pattern="[A-Za-z][A-Za-z0-9_-]{4,29}"
-                title="Enter a user ID (5–30 characters, must start with a letter, no spaces, only letters, numbers, underscores, or dashes).">
+                pattern="[A-Za-z][A-Za-z0-9_-]{4,19}"
+                title="Enter a user ID 5 to 20 characters long, starting with a letter, with no spaces, and only letters, numbers, underscores, or dashes.">
+                <br>
+                <span class="error" id="useridError"></span>
             </td>
     </tr>
     <!--User Password-->
     <tr>
         <td>Password:</td>
             <td>
-                <input type="password" name="password" id="password" required
-                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%^&*()\-_=+\\/<>.,`~])[A-Za-z0-9!@#%^&*()\-_=+\\/<>.,`~]{8,30}"
-                title="Password must be 8–30 characters and include uppercase, lowercase, a number, and a special character.">
+               <input type="password" name="password" id="password" required
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}"
+                title="Password must be at least 8 characters and include uppercase, lowercase, and a number.">
+                <br>
+                <span class="error" id="passwordError"></span>
             </td>
     </tr>
     
@@ -276,6 +303,8 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
             <td>
                 <input type="password" name="confirmPassword" id="confirmPassword" required
                 title="Re-enter your password. It must match the password above.">
+                <br>
+                <span class="error" id="confirmPasswordError"></span>
             </td>
     </tr> 
             
