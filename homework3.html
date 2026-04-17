@@ -189,11 +189,13 @@ Description: Website for patients of ZinoCare Group to register allowing to obta
         <tr>
             <td>ZIP Code:</td>
                 <td>
-                   <input type="text" name="zip" id="zip" required
+                    <input type="text" name="zip" id="zip" required
                     pattern="[0-9]{5}"
                     title="Enter your ZIP code using exactly 5 digits.">
+                    <br>
+                    <span class="error" id="zipError"></span>
                 </td>
-        </tr>
+            </tr>
        <!--Phone Number--> 
         <tr>
             <td>Phone Number:</td>
