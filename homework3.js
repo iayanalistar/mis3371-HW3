@@ -379,7 +379,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let email = document.getElementById("email")?.value || "";
             let phone = document.getElementById("phone")?.value || "";
             let address1 = document.getElementById("address1")?.value || "";
-            let address2 = document.getElementById("address2")?.value || "";
             let city = document.getElementById("city")?.value || "";
             let state = document.getElementById("state")?.value || "";
             let zip = document.getElementById("zip")?.value || "";
@@ -414,7 +413,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p><strong>Phone:</strong> ${phone}</p>
                 <p><strong>Address:</strong><br>
                 ${address1}<br>
-                ${address2}<br>
                 ${city}, ${state} ${zip}</p>
                 <p><strong>Conditions:</strong> ${conditions.length ? conditions.join(", ") : "None selected"}</p>
                 <p><strong>Vaccinated:</strong> ${vaccinated}</p>
