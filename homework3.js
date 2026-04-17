@@ -1,4 +1,88 @@
+function validateFirstName() {
+    var x = document.getElementById("fname").value;
+
+    if (x == "") {
+        document.getElementById("fnameError").innerHTML = "First name is required";
+        return false;
+    }
+    else if (!/^[A-Za-z'-]{1,30}$/.test(x)) {
+            document.getElementById("fnameError").innerHTML = "Letters, apostrophes, and dashes only";
+        return false;
+    }
+    else {
+            document.getElementById("fnameError").innerHTML = "";    
+        return true;
+    }
+}
+
+function validateMI() {
+    var x = document.getElementById("mi").value;
+
+        if  (x == "") {
+        document.getElementById("miError").innerHTML = "";
+        return true;
+    }
+    else if (!/^[A-Za-z]$/.test(x)) {
+        document.getElementById("miError").innerHTML = "Middle initial must be one letter";
+        return false;
+        }
+    else {
+        document.getElementById("miError").innerHTML = "";
+        return true;
+    }
+    }
+
+function validateLastName() {
+    var x = document.getElementById("lname").value;
+
+    if (x == "") {
+            document.getElementById("lnameError").innerHTML = "Last name is required";
+        return false;
+    }
+    else if (!/^[A-Za-z'-]{1,30}$/.test(x)) {
+        document.getElementById("lnameError").innerHTML = "Letters, apostrophes, and dashes only";
+            return false;
+    }
+    else {
+        document.getElementById("lnameError").innerHTML = "";
+            return  true;
+    }
+    }
+
+function validateDOB() {
+    var x = document.getElementById("dob").value;
+
+    if (x == "") {
+        document.getElementById("dobError").innerHTML = "Date of birth is required";
+            return false;
+    }
+
+    var dob =  new Date(x);
+    var today = new Date();
+    var oldDate = new Date();
+    oldDate.setFullYear(today.getFullYear() - 120);
+
+    if (dob > today) {
+         document.getElementById("dobError").innerHTML = "DOB cannot be in the future";
+        return false;
+    }
+    else  if (dob < oldDate) {
+        document.getElementById("dobError").innerHTML = "DOB cannot be more than 120 years ago";
+        return false;
+          }
+    else {
+        document.getElementById("dobError").innerHTML = "";
+        return true;
+        }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+
+     document.getElementById("fname").addEventListener("input", validateFirstName);
+    document.getElementById("mi").addEventListener("input", validateMI);
+    document.getElementById("lname").addEventListener("input", validateLastName);
+    document.getElementById("dob").addEventListener("change", validateDOB);
+    
     const reviewBtn = document.getElementById("reviewBtn");
     const userIdField = document.getElementById("userid");
     const passwordField = document.getElementById("password");
